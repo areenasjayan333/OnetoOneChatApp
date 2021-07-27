@@ -1,7 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-Future<User?> createAccount(String email, String password) async {
+import 'package:flutter/material.dart';
+import 'package:onetoonechatapp/SignInScreen.dart';
+
+Future<User?> createAccount(String name, String email, String password) async {
   FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   try {
     User? user = (await _auth.createUserWithEmailAndPassword(
             email: email, password: password))
@@ -9,6 +15,13 @@ Future<User?> createAccount(String email, String password) async {
 
     if (user != null) {
       print("Account created successfully");
+
+      await _firestore.collection('users').doc(_auth.currentUser.uid).set({
+        "name":name,
+        "email":email,
+        "status":"Unavailable",
+      })
+
       return user;
     } else {
       print("Account creator failed");
@@ -41,10 +54,13 @@ Future<User?> logIn(String email, String password) async {
 }
 
 // user.updateProfile(displayname : name)
-Future logOut() async {
+Future logOut(BuildContext context) async {
   FirebaseAuth _auth = FirebaseAuth.instance;
   try {
-    await _auth.signOut();
+    await _auth.signOut().then((value) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (_) => SignInScreen()));
+    });
   } catch (e) {
     print(e);
   }
