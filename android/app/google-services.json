@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "686354115353",
+    "project_id": "onetoonechatapp-491b3",
+    "storage_bucket": "onetoonechatapp-491b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686354115353:android:1c0bf40a48ea6415dab388",
+        "android_client_info": {
+          "package_name": "com.example.onetoonechatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686354115353-eqc63i67nnuv9hdfk5mg99tc3jq4pe6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmRm0q37FH3nGaw-QYQh8Ncu4vu09Cogg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686354115353-eqc63i67nnuv9hdfk5mg99tc3jq4pe6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
